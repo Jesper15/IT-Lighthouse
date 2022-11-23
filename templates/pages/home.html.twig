@@ -1,34 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-  <section class="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-service-item owl-carousel">
-            <div class="owl-stage-outer">
-              <div class="owl-stage" style="width: 4862px;">
-                <div class="owl-item active" style="width: 412px; margin-right: 30px;">
-                  <div class="item">
-                    <div class="icon">
-                      <div class="down-content">
-                        <ul>
-                          {% for name in carousel_name %}
-                            <h4>{{ name }}</h4>
-                          {% endfor %}
-                          {% for desc in carousel_desc %}
-                            <p>{{ desc }}</p>
-                          {% endfor %}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+  {#  <section class="services"> #}
+  <div class="flex-active">
+    {% for carousel in carousel %}
+      <div class="card" style="width: 18rem;">
+        <div class="down-content">
+          <h4 class="card-subtitle mb-2 text-muted">{{ carousel[0] }}</h4>
+          <p class="card-text">{{ carousel[1] }}</p>
+        </div>
+        <div class="card-body">
         </div>
       </div>
-    </div>
-  </section>
+    {% endfor %}
+  </div>
+  {#  </section> #}
 {% endblock %}

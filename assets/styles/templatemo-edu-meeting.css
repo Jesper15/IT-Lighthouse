@@ -689,29 +689,6 @@ banner
   margin-bottom: -7px;
 }
 
-#bg-video {
-    min-width: 100%;
-    min-height: 100vh;
-    max-width: 100%;
-    max-height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-
-#bg-video::-webkit-media-controls {
-    display: none !important;
-}
-
-.video-overlay {
-    position: absolute;
-    background-color: rgba(31,39,43,0.75);
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-}
-
 .main-banner .caption {
   position: absolute;
   top: 50%;
@@ -1302,22 +1279,6 @@ section.our-facts h2 {
   margin-top: 45px;
 }
 
-section.our-facts .video {
-  text-align: center;
-  margin-left: 70px;
-  background-image: url(../images/video-item-bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  border-radius: 20px;
-}
-
-section.our-facts .video img {
-  padding: 170px 0px;
-  max-width: 56px;
-}
-
-
 /* 
 ---------------------------------------------
 contact us
@@ -1796,11 +1757,6 @@ responsive
   }
 
   .new-students {
-    margin-top: 15px;
-  }
-
-  section.our-facts .video {
-    margin-left: 0px;
     margin-top: 15px;
   }
 

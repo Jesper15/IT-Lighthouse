@@ -6,11 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class AboutUsController extends AbstractController
+class InitiativesController extends AbstractController
 {
-    #[Route('/over-ons', name: 'app_about_us')]
+    #[Route('/initiatieven', name: 'app_initiatives')]
     public function AboutUs(): Response
     {
-        return $this->render('pages/aboutus.html.twig');
+        return $this->render('pages/initiatives.html.twig');
     }
 }
