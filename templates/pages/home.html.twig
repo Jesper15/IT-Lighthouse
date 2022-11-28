@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {#  <section class="services"> #}
+  <div class="flex-active">
+    {% for carousel in carousel %}
+      <div class="card" style="width: 18rem;">
+        <div class="down-content">
+          <h4 class="card-subtitle mb-2 text-muted">{{ carousel[0] }}</h4>
+          <p class="card-text">{{ carousel[1] }}</p>
+        </div>
+        <div class="card-body">
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {#  </section> #}
+{% endblock %}

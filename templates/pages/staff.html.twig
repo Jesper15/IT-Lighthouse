@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <div>
+    <img src={{ asset('images/johannes.jpg') }}>
+    <h3>Johannes van den Berg</h3>
+    <p>Voorzitter</p>
+    <a href="https://www.linkedin.com/in/johannesvandenberg/">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/linkedin.png" alt="Linkedin">
+    </a>
+    <a href="mailto:info@itlighthouse.nl">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/email.png">
+    </a>
+  </div>
+
+  <div>
+    <img src={{ asset('images/jan.png') }}>
+    <h3>Jan Bakker</h3>
+    <p>Secretaris</p>
+    <a href="https://www.linkedin.com/in/jan-bakker//">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/linkedin.png" alt="Linkedin">
+    </a>
+    <a href="https://janbakker.tech/">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/website.png" alt="website">
+    </a>
+    <a href="https://www.janbakkerconsulting.nl/">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/website.png" alt="website">
+    </a>
+  </div>
+
+  <div>
+    <img src='{{ asset('images/william.jpg') }}' alt="William">
+    <h3>William Loosman</h3>
+    <p>Penningmeester</p>
+    <a href="https://www.linkedin.com/in/williamloosman/">
+      <img src="https://www.itlighthouse.nl/wp-content/plugins/team-members/inc/img/links/linkedin.png" alt="Linkedin">
+    </a>
+  </div>
+
+{% endblock %}
