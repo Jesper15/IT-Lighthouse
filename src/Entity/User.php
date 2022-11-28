@@ -18,8 +18,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column]
-    private array $roles = [];
+    /**
+     * @var array<int, string>
+     */
+    #[ORM\Column(length: 255)]
+    private array $permissions;
 
     /**
      * @var string The hashed password
@@ -29,6 +32,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $Username = null;
+
+    /**
+     * @param array<int, string> $roles
+     */
+    public function __construct(
+        string $username,
+        string $email,
+        string $password,
+        string $permissions
+    )
+    {
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = $password;
+        $this->permissions = $permissions;
+    }
 
     public function getId(): ?int
     {
@@ -54,7 +73,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -62,16 +81,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getRoles(): array
     {
-        $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
-
-        return array_unique($roles);
+        return $this->permissions;
     }
 
-    public function setRoles(array $roles): self
+    /**
+     * @param array<int, string> $permissions
+     */
+    public function setRoles(array $permissions): self
     {
-        $this->roles = $roles;
+        $this->permissions = $permissions;
 
         return $this;
     }
