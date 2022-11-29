@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Data;
+namespace App\Controller\Form\User\Data;
 
 use Symfony\Component\Validator\Constraints\Length;
 
