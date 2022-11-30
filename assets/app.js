@@ -7,12 +7,6 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-import './js/lightbox'
-import './js/isotope'
-import './js/tabs'
-import './js/video'
-import './js/slick-slider'
-import './js/custom'
 
 const $ = require('jquery');
 // this "modifies" the jquery module: adding behavior to it
