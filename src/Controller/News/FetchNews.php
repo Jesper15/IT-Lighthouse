@@ -21,10 +21,6 @@ class FetchNews extends AbstractController
             );
         }
 
-//        dd($news);
-
-//        return new Response('Nieuws: ' . $news->getTitle());
-
         return $this->render('pages/news/news_one.html.twig', [
            'news' => $news
         ]);
