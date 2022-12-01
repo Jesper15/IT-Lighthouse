@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Controller\User;
+namespace App\Controller\News;
 
 use App\Enum\FlashType;
-use App\Form\User\Data\CreateUserData;
-use App\Form\User\Handler\CreateUserHandler;
-use App\Type\CreateUserType;
+use App\Form\News\Data\CreateNewsData;
+use App\Form\News\Handler\CreateNewsHandler;
+use App\Type\CreateNewsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CreateUserController extends AbstractController
+class CreateNewsController extends AbstractController
 {
     public function __construct(
-        private CreateUserHandler $handler
+        private readonly CreateNewsHandler $handler
     )
     {}
 
-    #[Route('/user/create')]
-    public function handleRequest(Request $request): Response
+    #[Route('/news/create', name: 'app_create_news')]
+    public function CreateNews(Request $request): Response
     {
-        $data = new CreateUserData();
-        $form = $this->createForm(CreateUserType::class, $data);
+        $data = new CreateNewsData();
+        $form = $this->createForm(CreateNewsType::class, $data);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -33,7 +33,7 @@ class CreateUserController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        return $this->renderForm('pages/user/create.html.twig', [
+        return $this->renderForm('pages/news/create_news.html.twig', [
             'form' => $form,
         ]);
     }

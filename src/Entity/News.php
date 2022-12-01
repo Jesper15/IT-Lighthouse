@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\NewsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Monolog\DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: NewsRepository::class)]
 class News
@@ -14,13 +15,30 @@ class News
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Title = null;
+    private ?string $title = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Description = null;
+    private ?string $description = null;
 
+    /**
+     * @var \DateTimeImmutable
+     */
     #[ORM\Column]
-    private ?\DateTimeImmutable $DateCreated = null;
+    private \DateTimeImmutable $dateCreated;
+
+    /**
+     * @param DateTimeImmutable $dateCreated
+     */
+    public function __construct(
+        string $title,
+        string $description,
+        DateTimeImmutable $dateCreated
+    )
+    {
+        $this->title = $title;
+        $this->description = $description;
+        $this->dateCreated = $dateCreated;
+    }
 
     public function getId(): ?int
     {
@@ -29,36 +47,39 @@ class News
 
     public function getTitle(): ?string
     {
-        return $this->Title;
+        return $this->title;
     }
 
-    public function setTitle(string $Title): self
+    public function setTitle(string $title): self
     {
-        $this->Title = $Title;
+        $this->title = $title;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getDateCreated(): ?\DateTimeImmutable
+    public function getDateCreated(): \DateTimeImmutable
     {
-        return $this->DateCreated;
+        return $this->dateCreated;
     }
 
-    public function setDateCreated(\DateTimeImmutable $DateCreated): self
+    /**
+     * @param \DateTimeImmutable $dateCreated
+     */
+    public function setDateCreated(\DateTimeImmutable $dateCreated): self
     {
-        $this->DateCreated = $DateCreated;
+        $this->dateCreated = $dateCreated;
 
         return $this;
     }

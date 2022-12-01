@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Controller\Form\User\Handler;
+namespace App\Form\User\Handler;
 
-use App\Controller\Form\User\Data\CreateUserData;
 use App\Entity\User;
+use App\Form\User\Data\CreateUserData;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class CreateUserHandler
 {
     public function __construct(
-        private EntityManagerInterface $em,
-        private UserPasswordHasherInterface $hasher
+        private readonly EntityManagerInterface $em,
+        private readonly UserPasswordHasherInterface $hasher
     )
     {}
 
