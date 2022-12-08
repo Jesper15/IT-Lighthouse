@@ -15,16 +15,16 @@ class Events
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title;
+    private string $title;
 
     #[ORM\Column(length: 255)]
-    private ?string $address;
+    private string $address;
 
     #[ORM\Column(length: 255)]
-    private ?string $description;
+    private string $description;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $datetime;
+    private \DateTimeImmutable $datetime;
 
     public function __construct(
         string $title,
