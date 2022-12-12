@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <table style="border: #0a0a0a solid">
+    {% for events in event %}
+      <tr style="border: #0a0a0a solid">
+        <td>
+          <a href="{{ path('app_event_fetch_one', {'id':events.id}) }}">{{ events.title }}</a>
+        </td>
+        <td style="border: #0a0a0a solid">{{ events.description|length > 50 ? news.description|slice(0, 50) ~ '...' : events.description }}</td>
+        <td>{{ events.datetime|date("d-m-Y") }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

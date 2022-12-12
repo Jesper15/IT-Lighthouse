@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <table style="border: #0a0a0a solid">
+    {% for news in news %}
+      <tr style="border: #0a0a0a solid">
+        <td>
+          <a href="{{ path('app_news_fetch_one', {'id':news.id}) }}">{{ news.title }}</a>
+        </td>
+        <td style="border: #0a0a0a solid">{{ news.description|length > 50 ? news.description|slice(0, 50) ~ '...' : news.description }}</td>
+        <td>{{ news.dateCreated|date("d-m-Y") }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
